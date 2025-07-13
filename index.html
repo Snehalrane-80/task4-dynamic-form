@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic Form with Validation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="nav">
+    <button onclick="showPage('register')">Register</button>
+    <button onclick="showPage('success')">Success Page</button>
+  </div>
+
+  <!-- Register Page -->
+  <div id="register" class="page">
+    <h2>Register</h2>
+    <form onsubmit="return validateForm()">
+      <input type="text" id="username" placeholder="Username" required><br>
+
+      <input type="email" id="email" placeholder="Email" required><br>
+
+      <input type="password" id="password" placeholder="Password" oninput="checkPasswordStrength()" required>
+      <div id="strength"></div>
+
+      <input type="password" id="confirm" placeholder="Confirm Password" oninput="checkConfirmMatch()" required>
+      <div id="matchMessage"></div>
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <!-- Success Page -->
+  <div id="success" class="page" style="display:none;">
+    <h2>Registration Successful 🎉</h2>
+    <p>Welcome! Your account has been created.</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
